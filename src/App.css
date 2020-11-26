@@ -45,3 +45,10 @@ body {
   background-size: contain;
   height: 185px;
 }
+
+.media-img {
+  background-image: url(https://s3.us-east-2.amazonaws.com/cc-prd-s3-uploads/2020/10/13/95a45a4cbef0912008b0fc2071aa606ed6db8c95.jpeg);
+  width: 100%;
+  background-size: contain;
+  height: 185px;
+}

@@ -4,6 +4,10 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import LeftProduct from "../LeftProducts/Index"
+import RightProduct from "../RightProduct/Index"
+import { useDispatch, useSelector } from 'react-redux'
+import { AddItem, RemoveItem } from "../../Actions/ShoppingActions"
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -23,7 +27,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Index() {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
+    let data = useSelector((state) => state)
+    const { value } = data;
+
+    const IncrementValue = () => {
+        dispatch(AddItem())
+    }
+    const DecrementValue = () => {
+        dispatch(RemoveItem())
+    }
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
@@ -46,11 +60,11 @@ export default function Index() {
                         </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                    <LeftProduct />
+                    <LeftProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} />
                     {/* <Paper className={classes.paper}>xs=6</Paper> */}
                 </Grid>
                 <Grid item xs={6}>
-                    <Paper className={classes.paper}>xs=6</Paper>
+                    <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} />
                 </Grid>
 
             </Grid>

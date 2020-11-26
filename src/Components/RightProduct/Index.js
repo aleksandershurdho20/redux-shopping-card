@@ -28,11 +28,12 @@ const useStyles = makeStyles({
 
 export default function Index({ IncrementValue, DecrementValue, data }) {
     const classes = useStyles();
+
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
-                    className="media"
+                    className="media-img"
                 // component="img"
                 // alt="Contemplative Reptile"
                 // image="/static/images/cards/contemplative-reptile.jpg"
@@ -40,11 +41,11 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Laptop Surface Pro
+                        Iphone
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+
           </Typography>
                 </CardContent>
             </CardActionArea>

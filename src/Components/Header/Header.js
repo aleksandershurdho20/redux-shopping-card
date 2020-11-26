@@ -8,6 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import Badge from '@material-ui/core/Badge';
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const useStyles = makeStyles((theme) => ({
     AppBar: {
@@ -43,7 +45,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
     const classes = useStyles();
-
+    let data = useSelector((state) => state)
+    const { value } = data;
+    console.log(data, 'da')
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.AppBar}>
@@ -68,7 +72,7 @@ export default function Header() {
                     </div>
                     <div>
 
-                        <Badge badgeContent={4} color="primary">
+                        <Badge badgeContent={value} color="primary">
                             <LocalMallIcon style={{ color: '#000' }} />
                         </Badge>
 
