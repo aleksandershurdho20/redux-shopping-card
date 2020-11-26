@@ -39,3 +39,9 @@
 body {
   background: #eee;
 }
+.media {
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg);
+  width: 100%;
+  background-size: contain;
+  height: 185px;
+}

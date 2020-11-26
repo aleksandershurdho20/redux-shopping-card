@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import LeftProduct from "../LeftProducts/Index"
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -34,7 +34,8 @@ export default function Index() {
                         display="inline"
                         color="primary"
                     >
-                        Your Shopping                        </Typography>
+                        Your Shopping
+                </Typography>
                     <Typography
                         variant="h4"
                         className={classes.brandText}
@@ -45,7 +46,8 @@ export default function Index() {
                         </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                    <Paper className={classes.paper}>xs=6</Paper>
+                    <LeftProduct />
+                    {/* <Paper className={classes.paper}>xs=6</Paper> */}
                 </Grid>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>xs=6</Paper>
