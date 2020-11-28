@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import Buttons from "../../Common/Buttons/Buttons"
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -43,8 +45,8 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                         Laptop Surface Pro
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+
           </Typography>
                 </CardContent>
             </CardActionArea>
@@ -54,11 +56,11 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                     <AddIcon />
                 </IconButton>
                 <span className={classes.quantity}>{data}</span>
-                <IconButton aria-label="delete" onClick={DecrementValue}>
+                <IconButton aria-label="delete" onClick={DecrementValue} disabled={data == 0}>
                     <RemoveIcon />
                 </IconButton>
-                <Button variant="primary">hi</Button>
             </CardActions>
+            <Buttons text={'Add to Cart'} />
         </Card>
     );
 }

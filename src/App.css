@@ -52,3 +52,13 @@ body {
   background-size: contain;
   height: 185px;
 }
+/* .cart-btn {
+  margin-bottom: 10px;
+} */
+.MuiButton-outlinedPrimary:hover {
+  background-color: #3f51b5 !important;
+  box-shadow: 0px 15px 20px #3f51b5;
+  color: #fff;
+  transform: translateY(-7px);
+  transition: all ease-in 0.2s;
+}

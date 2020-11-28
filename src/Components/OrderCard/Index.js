@@ -40,6 +40,7 @@ export default function Index() {
     }
 
     const AddCartItem = () => {
+        console.log('click')
         dispatch(AddItemToCart())
     }
     // const AddItem = () => {

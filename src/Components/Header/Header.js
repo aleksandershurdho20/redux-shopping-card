@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
     const classes = useStyles();
     let data = useSelector((state) => state)
-    const { value } = data;
-    console.log(data, 'da')
+    const { cartItem } = data;
+    console.log(cartItem, 'da')
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.AppBar}>
@@ -72,7 +72,7 @@ export default function Header() {
                     </div>
                     <div>
 
-                        <Badge badgeContent={value} color="primary">
+                        <Badge badgeContent={cartItem} color="primary">
                             <LocalMallIcon style={{ color: '#000' }} />
                         </Badge>
 

@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import Buttons from "../../Common/Buttons/Buttons"
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -22,7 +24,14 @@ const useStyles = makeStyles({
         textAlign: 'center',
 
         color: '#3f51b5;'
-    }
+    },
+    cartBtn: {
+        marginBottom: 10,
+        borderRadius: 8,
+        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1);',
+
+    },
+
 
 });
 
@@ -55,12 +64,12 @@ export default function Index({ IncrementValue, DecrementValue, data, AddCartIte
                     <AddIcon />
                 </IconButton>
                 <span className={classes.quantity}>{data}</span>
-                <IconButton aria-label="delete" onClick={DecrementValue}>
+                <IconButton aria-label="delete" onClick={DecrementValue} disabled={data == 0}>
                     <RemoveIcon />
                 </IconButton>
-                <Button variant="secondary" onClick={AddCartItem}>hi</Button>
-
             </CardActions>
+            <Button variant="outlined" color="primary" className={classes.cartBtn} onClick={AddCartItem}>
+                Add to Cart            </Button>
         </Card>
     );
 }
