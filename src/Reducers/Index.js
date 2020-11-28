@@ -1,5 +1,6 @@
 const initialValue = {
     value: 0,
+    cartItem: 0
 }
 
 export const Index = (state = initialValue, action) => {
@@ -10,6 +11,8 @@ export const Index = (state = initialValue, action) => {
             return { ...state, value: state.value + 1 }
         case ('DECREMENT'):
             return { ...state, value: state.value - 1 }
+        case ('ADD_CART'):
+            return { ...state, cartItem: state.cartItem = 1 }
         default: return initialValue
     }
 }

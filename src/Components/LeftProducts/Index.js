@@ -57,7 +57,7 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                 <IconButton aria-label="delete" onClick={DecrementValue}>
                     <RemoveIcon />
                 </IconButton>
-
+                <Button variant="primary">hi</Button>
             </CardActions>
         </Card>
     );

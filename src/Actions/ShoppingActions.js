@@ -9,3 +9,9 @@ export const RemoveItem = () => {
         type: 'DECREMENT'
     }
 }
+
+export const AddItemToCart = () => {
+    return {
+        type: 'ADD_CART'
+    }
+}

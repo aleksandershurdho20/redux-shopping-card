@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import LeftProduct from "../LeftProducts/Index"
 import RightProduct from "../RightProduct/Index"
 import { useDispatch, useSelector } from 'react-redux'
-import { AddItem, RemoveItem } from "../../Actions/ShoppingActions"
+import { AddItem, RemoveItem, AddItemToCart } from "../../Actions/ShoppingActions"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,6 +38,13 @@ export default function Index() {
     const DecrementValue = () => {
         dispatch(RemoveItem())
     }
+
+    const AddCartItem = () => {
+        dispatch(AddItemToCart())
+    }
+    // const AddItem = () => {
+    //     dispatch(AddItemToCart())
+    // }
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
@@ -64,7 +71,7 @@ export default function Index() {
                     {/* <Paper className={classes.paper}>xs=6</Paper> */}
                 </Grid>
                 <Grid item xs={6}>
-                    <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} />
+                    <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} />
                 </Grid>
 
             </Grid>

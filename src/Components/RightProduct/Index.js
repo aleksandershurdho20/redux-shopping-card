@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 });
 
-export default function Index({ IncrementValue, DecrementValue, data }) {
+export default function Index({ IncrementValue, DecrementValue, data, AddCartItem }) {
     const classes = useStyles();
 
     return (
@@ -58,6 +58,7 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                 <IconButton aria-label="delete" onClick={DecrementValue}>
                     <RemoveIcon />
                 </IconButton>
+                <Button variant="secondary" onClick={AddCartItem}>hi</Button>
 
             </CardActions>
         </Card>
