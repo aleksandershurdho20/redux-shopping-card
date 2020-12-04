@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,9 @@ import LeftProduct from "../LeftProducts/Index"
 import RightProduct from "../RightProduct/Index"
 import { useDispatch, useSelector } from 'react-redux'
 import { AddItem, RemoveItem, AddItemToCart } from "../../Actions/ShoppingActions"
+import Skeleton from '@material-ui/lab/Skeleton';
 
+import Loader from "../../Common/loader/Index"
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -46,6 +48,11 @@ export default function Index() {
     // const AddItem = () => {
     //     dispatch(AddItemToCart())
     // }
+    const [loading, setLoading] = useState(true)
+
+    setTimeout(() => {
+        setLoading(false)
+    }, 5000)
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
@@ -67,13 +74,21 @@ export default function Index() {
                         BAG
                         </Typography>
                 </Grid>
-                <Grid item xs={6}>
-                    <LeftProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} />
-                    {/* <Paper className={classes.paper}>xs=6</Paper> */}
-                </Grid>
-                <Grid item xs={6}>
-                    <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} />
-                </Grid>
+
+                {loading ? <Skeleton animation="wave" height={100} width="80%" style={{ marginBottom: 6 }} > </Skeleton>
+                    : <>
+                        <Grid item xs={6}>
+                            <LeftProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} />
+                            {/* <Paper className={classes.paper}>xs=6</Paper> */}
+                        </Grid>
+                        <Grid item xs={6}>
+                            <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} />
+                        </Grid>
+                    </>}
+
+
+
+
 
             </Grid>
 
