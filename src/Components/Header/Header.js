@@ -51,7 +51,10 @@ export default function Header() {
     console.log(value, price, 'da')
     const [open, setOpen] = useState(false);
     const handleClickOpen = () => {
-        setOpen(true);
+        if (value != 0) {
+            setOpen(true);
+
+        }
     };
 
     const handleClose = () => {
@@ -86,6 +89,7 @@ export default function Header() {
                         </Typography>
                     </div>
                     <div>
+                        {console.log(value, 'value')}
 
 
                         <Badge badgeContent={cartItem} color="primary" onClick={() => {
