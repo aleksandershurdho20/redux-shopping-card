@@ -6,27 +6,19 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import Alert from '@material-ui/lab/Alert';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Index() {
-    const [open, setOpen] = React.useState(false);
+export default function Index({ handleClickOpen, handleClose, open, getTotalLaptop, text, value, price }) {
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     return (
         <div>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                Slide in alert dialog
-      </Button>
+            {getTotalLaptop}
+
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -35,12 +27,14 @@ export default function Index() {
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+                <DialogTitle id="alert-dialog-slide-title">{text}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Let Google help apps determine location. This means sending anonymous location data to
-                        Google, even when no apps are running.
-          </DialogContentText>
+                        <Alert severity="info">{value} $ </Alert>
+
+
+
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">

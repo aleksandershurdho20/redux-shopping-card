@@ -50,13 +50,12 @@ export default function Index() {
     // }
     const [loading, setLoading] = useState(true)
 
+
     setTimeout(() => {
         setLoading(false)
     }, 5000)
 
-    const getTotalLaptop = () => {
-        return value * price;
-    }
+
 
     return (
         <div className={classes.root}>
@@ -87,11 +86,11 @@ export default function Index() {
                             {/* <Paper className={classes.paper}>xs=6</Paper> */}
                         </Grid>
                         <Grid item xs={6}>
-                            <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} getTotalLaptop={getTotalLaptop} />
+                            <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} />
                         </Grid>
                     </>}
 
-                <Typography variant="h5">CMIMI ESHTE  : {getTotalLaptop()}</Typography>
+                {/* <Typography variant="h5">CMIMI ESHTE  : {getTotalLaptop()}</Typography> */}
 
 
 

@@ -62,3 +62,7 @@ body {
   transform: translateY(-7px);
   transition: all ease-in 0.2s;
 }
+.MuiDialog-paperWidthSm {
+  width: 54% !important;
+  height: 100% !important;
+}

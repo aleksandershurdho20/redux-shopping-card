@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import Badge from '@material-ui/core/Badge';
 import { useDispatch, useSelector } from 'react-redux'
-
+import Modal from "../../Common/Mdal/Index"
 
 const useStyles = makeStyles((theme) => ({
     AppBar: {
@@ -46,8 +46,23 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
     const classes = useStyles();
     let data = useSelector((state) => state)
-    const { cartItem } = data;
-    console.log(cartItem, 'da')
+    const { cartItem, value, price } = data;
+
+    console.log(value, price, 'da')
+    const [open, setOpen] = useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+
+
+
+    const details = value * price;
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.AppBar}>
@@ -72,14 +87,19 @@ export default function Header() {
                     </div>
                     <div>
 
-                        <Badge badgeContent={cartItem} color="primary">
+
+                        <Badge badgeContent={cartItem} color="primary" onClick={() => {
+                            handleClickOpen()
+                        }} >
                             <LocalMallIcon style={{ color: '#000' }} />
-                        </Badge>
+                        </Badge >
 
                     </div>
 
                 </Toolbar>
             </AppBar>
+            <Modal open={open} handleClose={handleClose} text={'Your Total is '} value={details} />
+
         </div>
     );
 }
