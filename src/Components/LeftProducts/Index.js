@@ -11,6 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Buttons from "../../Common/Buttons/Buttons"
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
     root: {
@@ -48,9 +50,16 @@ export default function Index({ IncrementValue, DecrementValue, data }) {
                         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 
           </Typography>
+
                 </CardContent>
             </CardActionArea>
             <CardActions>
+                <Chip variant="outlined" style={{ width: '100%' }} color="primary" avatar={<Avatar>$</Avatar>} label="500"
+                />
+
+
+
+
                 Quantity
                 <IconButton aria-label="delete" onClick={IncrementValue}>
                     <AddIcon />

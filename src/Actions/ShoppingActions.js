@@ -15,3 +15,9 @@ export const AddItemToCart = () => {
         type: 'ADD_CART'
     }
 }
+
+export const TotalPriceLapTop = () => {
+    return {
+        type: 'TOTAL_LAPTOP'
+    }
+}

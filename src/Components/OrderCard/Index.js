@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import LeftProduct from "../LeftProducts/Index"
 import RightProduct from "../RightProduct/Index"
 import { useDispatch, useSelector } from 'react-redux'
-import { AddItem, RemoveItem, AddItemToCart } from "../../Actions/ShoppingActions"
+import { AddItem, RemoveItem, AddItemToCart, TotalPriceLapTop } from "../../Actions/ShoppingActions"
 import Skeleton from '@material-ui/lab/Skeleton';
 
 import Loader from "../../Common/loader/Index"
@@ -32,7 +32,7 @@ export default function Index() {
     const dispatch = useDispatch();
 
     let data = useSelector((state) => state)
-    const { value } = data;
+    const { value, price } = data;
 
     const IncrementValue = () => {
         dispatch(AddItem())
@@ -53,6 +53,11 @@ export default function Index() {
     setTimeout(() => {
         setLoading(false)
     }, 5000)
+
+    const getTotalLaptop = () => {
+        return value * price;
+    }
+
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
@@ -82,11 +87,11 @@ export default function Index() {
                             {/* <Paper className={classes.paper}>xs=6</Paper> */}
                         </Grid>
                         <Grid item xs={6}>
-                            <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} />
+                            <RightProduct IncrementValue={IncrementValue} DecrementValue={DecrementValue} data={value} AddCartItem={AddCartItem} getTotalLaptop={getTotalLaptop} />
                         </Grid>
                     </>}
 
-
+                <Typography variant="h5">CMIMI ESHTE  : {getTotalLaptop()}</Typography>
 
 
 
